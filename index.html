@@ -1,0 +1,498 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCareHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: #fff;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .btn {
+            background-color: #ff0066;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            background-image: url('/api/placeholder/1200/300');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: #ff0066;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+        
+        /* Feature Icons */
+        .feature-icons {
+            padding: 30px 0;
+        }
+        
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .icon-item {
+            padding: 15px;
+        }
+        
+        .icon-item img {
+            width: 40px;
+            margin-bottom: 10px;
+        }
+        
+        /* Main Content Tabs */
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        .tab {
+            padding: 8px 16px;
+            background-color: #eee;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .tab.active {
+            background-color: #ff0066;
+            color: white;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .card-img {
+            height: 150px;
+            background-image: url('/api/placeholder/300/150');
+            background-size: cover;
+            position: relative;
+        }
+        
+        .card-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ff0066;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .card-content {
+            padding: 15px;
+        }
+        
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .card-info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        /* Teleconsultations */
+        .teleconsultations {
+            padding: 30px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        /* Medication Services */
+        .medication-services {
+            padding: 30px 0;
+        }
+        
+        .services-icons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .service-icon {
+            padding: 15px;
+        }
+        
+        .service-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #f0f0f0;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col p, .footer-col a {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .newsletter {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px 0 0 20px;
+        }
+        
+        .newsletter button {
+            background-color: #ff0066;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .icons-grid, .cards-grid, .services-grid, .services-icons, .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .icons-grid, .cards-grid, .services-grid, .services-icons, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="container">
+        <div class="header">
+            <div class="logo">MediCareHub</div>
+            <div class="nav">
+                <a href="#">Set medication</a>
+                <a href="#">Partner</a>
+                <a href="#" class="btn">Log in</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Stay on track with smart medication reminders.</h1>
+            <p>Book teleconsultations and refill prescriptions with ease.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search for medication">
+                <button>🔍</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Feature Icons -->
+    <div class="container">
+        <div class="feature-icons">
+            <div class="icons-grid">
+                <div class="icon-item">
+                    <img src="/api/placeholder/40/40" alt="Prescriptions">
+                    <p>Prescriptions</p>
+                </div>
+                <div class="icon-item">
+                    <img src="/api/placeholder/40/40" alt="Medication">
+                    <p>Medication</p>
+                </div>
+                <div class="icon-item">
+                    <img src="/api/placeholder/40/40" alt="Family">
+                    <p>Family</p>
+                </div>
+                <div class="icon-item">
+                    <img src="/api/placeholder/40/40" alt="Healthcare">
+                    <p>Healthcare</p>
+                </div>
+                <div class="icon-item">
+                    <img src="/api/placeholder/40/40" alt="Doctor">
+                    <p>Doctor</p>
+                </div>
+                <div class="icon-item">
+                    <img src="/api/placeholder/40/40" alt="AI-powered">
+                    <p>AI-powered</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content Tabs -->
+    <div class="container">
+        <div class="main-content">
+            <h2 class="section-title">AI-</h2>
+            <div class="tabs">
+                <div class="tab">All</div>
+                <div class="tab active">Today's</div>
+                <div class="tab">Tomorrow's</div>
+                <div class="tab">This week's</div>
+                <div class="tab">Next week's</div>
+                <div class="tab">This month's overview</div>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">REMINDER</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Daily Dose Reminder (DR)</div>
+                        <div class="card-info">Health Haven · 17/03/2023, 5 AM</div>
+                        <button class="btn">Order now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">REMINDER</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Wellness Wave (AU)</div>
+                        <div class="card-info">Heal Hub · 19/03/2023</div>
+                        <button class="btn">Order now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">REMINDER</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Heal & Harmony (BE)</div>
+                        <div class="card-info">Cure Center · 19/03/2023</div>
+                        <button class="btn">Order now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">REMINDER</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Lorem ipsum</div>
+                        <div class="card-info">Lorem ipsum</div>
+                        <button class="btn">Button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Teleconsultations -->
+    <div class="container">
+        <div class="teleconsultations">
+            <h2 class="section-title">This week's teleconsultations</h2>
+            
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">NEW</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Medication Management</div>
+                        <div class="card-info">Smart Reminders</div>
+                        <button class="btn">Order now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">HOT</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Prescription Refills</div>
+                        <div class="card-info">Family Monitoring</div>
+                        <button class="btn">Order now</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">OFFER</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Teleconsultation Services</div>
+                        <div class="card-info">Comprehensive Healthcare Hub</div>
+                        <button class="btn">Consultation</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <div class="card-tag">TRACK</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Medication Tracking</div>
+                        <div class="card-info">Centralized Platform</div>
+                        <button class="btn">Monitor usage</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Medication Services -->
+    <div class="container">
+        <div class="medication-services">
+            <h2 class="section-title">Medication Services</h2>
+            
+            <div class="services-icons">
+                <div class="service-icon">
+                    <img src="/api/placeholder/60/60" alt="Family Health Tracking">
+                    <h3>Family Health Tracking</h3>
